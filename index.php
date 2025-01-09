@@ -9,6 +9,7 @@
 
     $action = isset($_GET['action']) ? $_GET['action'] : 'read';
     $id = isset($_GET['id']) ? $_GET['id']: '';
+    $user = isset($_GET['user']) ? $_GET['user']: '';
     
 
     switch($action){
@@ -54,6 +55,10 @@
 
         case 'deleteAccommodationUser':
             $controllerAU->deleteAccommodationUser($id);
+            break;
+
+        case 'rolUser':
+            $controllerU->modifyRolUser($id, $user);
             break;
 
     }

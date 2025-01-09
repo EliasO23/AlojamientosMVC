@@ -39,7 +39,7 @@ if (session_status() == PHP_SESSION_NONE) {
                     </div>
                     <div class="form-group">
                         <label for="price">Precio por noche:</label>
-                        <input type="number" name="price" placeholder="Ingresa el precio por noche" required>
+                        <input type="number" name="price" placeholder="Ingresa el precio por noche" step="0.01" required>
                     </div>
                     <div class="center">
                         <button type="submit" class="btn">Agregar</button>

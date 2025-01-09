@@ -86,4 +86,10 @@ class UserController
         header("Location: ./index.php?action=read");
         exit();
     }
+
+    public function modifyRolUser($rol_id, $id_user)
+    {
+        $this->user->modifyRolUser($rol_id, $id_user);
+        header("Location: ./index.php?action=listUsers");
+    }
 }

@@ -1,4 +1,4 @@
-<?php 
+<?php
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -30,6 +30,7 @@ if (session_status() == PHP_SESSION_NONE) {
                     <th>Email</th>
                     <th>Rol</th>
                     <th>Creado</th>
+                    <th>Cambiar a</th>
                 </tr>
             </thead>
             <tbody>
@@ -40,7 +41,14 @@ if (session_status() == PHP_SESSION_NONE) {
                         <td><?= htmlspecialchars($user['email']) ?></td>
                         <td><?= $user['name'] ?></td>
                         <td><?= $user['created_at'] ?></td>
-                        
+                        <td>
+                            <?php if ($user['rol_id'] == 1): ?>
+                                <a href="./index?action=rolUser&id=2&user=<?php echo $user['id_user']; ?>">Administrador</a>
+                            <?php else: ?>
+                                <a href="./index?action=rolUser&id=1&user=<?php echo $user['id_user']; ?>">Cliente</a>
+                            <?php endif; ?>
+                        </td>
+
                     </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -48,4 +56,5 @@ if (session_status() == PHP_SESSION_NONE) {
     </main>
 
 </body>
+
 </html>

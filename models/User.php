@@ -17,7 +17,7 @@ class User
     public function getAllUsers()
     {
         try {
-            $query = "SELECT us.id_user, us.username, us.email, ro.name, us.created_at FROM users AS us INNER JOIN roles AS ro ON us.rol_id = ro.id_rol ORDER BY us.id_user";   
+            $query = "SELECT us.id_user, us.username, us.email, ro.name, us.rol_id, us.created_at FROM users AS us INNER JOIN roles AS ro ON us.rol_id = ro.id_rol ORDER BY us.id_user";   
             $stmt = $this->conn->prepare($query);
             $stmt->execute();
 
@@ -53,6 +53,18 @@ class User
             
         } catch (Exception $e) {
             echo "Error al ibtener el usuario: " . $e->getMessage();
+        }
+    }
+
+    public function modifyRolUser($rol_id, $id_user){
+        try {
+            $query = "UPDATE {$this->table_name} SET rol_id = $rol_id WHERE id_user = $id_user";
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute();
+
+            return $stmt;
+        } catch (Exception $e) {
+            echo "Error al modificar el rol del usuario: " . $e->getMessage();
         }
     }
 }
