@@ -30,12 +30,22 @@ class AccommodationUserController
     }
 
     public function addAccommodationUser($accommodationid)
-    {
+    {      
+
         $user_id = $this->checkSessionAndRedirect();
         $accommodation_id = $accommodationid;
 
+        // if ($this->accommodationUser->getAccommodation($user_id, $accommodation_id)){
+        //     $_SESSION['message'] = "El alojamiento ya esta seleccionado";
+        // }else{
+        //     $this->accommodationUser->addAccommodationsUser($user_id, $accommodation_id);
+        //     $_SESSION['message'] = "Alojamiento seleccionado";
+        // }
+
         $this->accommodationUser->addAccommodationsUser($user_id, $accommodation_id);
+
         header("Location: ./index.php?action=read");
+        
     }
 
     public function getAccommodationUser()
@@ -61,6 +71,17 @@ class AccommodationUserController
         }
         
     }
+
+    // public function showAccommodations($accommodationid)
+    // {
+    //     $user_id = $this->checkSessionAndRedirect();
+    //     $accommodation_id = $accommodationid;
+
+    //     // $accommodations = $this->accommodationUser->getAccommodationsUser(@$user_id);
+    //     $accommodationIds = $this->accommodationUser->getAccommodation(@$user_id, $accommodation_id);
+
+    //     include './views/accommodations.php';
+    // }
 }
 
 ?>

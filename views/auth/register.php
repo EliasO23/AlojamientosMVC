@@ -19,6 +19,9 @@
             <div class="form-container">
                 <form action="./index.php?action=newUser" method="POST">
                     <h2>Registrarse</h2>
+                    <?php if (!empty($errorMessage)): ?>
+                        <p class="error-message"><?= htmlspecialchars($errorMessage) ?></p>
+                    <?php endif; ?>
                     <div class="form-group">
                         <label for="username">Nombre de usuario:</label>
                         <input type="text" name="username" placeholder="Ingresa tu nombre de usuario" required>
@@ -30,6 +33,10 @@
                     <div class="form-group">
                         <label for="password">Contraseña:</label>
                         <input type="password" name="password" placeholder="Ingresa tu contraseña" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm_password">Confirmacion:</label>
+                        <input type="password" name="confirm_password" placeholder="Confirme su contraseña" required>
                     </div>
                     <div class="center">
                         <button type="submit" class="btn">Crear Cuenta</button>

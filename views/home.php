@@ -11,14 +11,15 @@
 <body>
     <?php include './views/layouts/navbar.php' ?>
     <div class="text-welcome">
-        <h1>Bienvenido <?php echo $_SESSION['username']?></h1>
+        <h1>Bienvenido <?php echo $_SESSION['username'] ?></h1>
         <p>Revisa tus alojamientos preferidos..</p>
 
     </div>
     <div class="card-container">
+
         <?php foreach ($accommodations as $accommodation): ?>
             <div class="card">
-                <img src="https://digital.ihg.com/is/image/ihg/holiday-inn-san-salvador-7105916249-4x3" alt="Imagen del alojamiento">
+                <img src="<?php echo $accommodation['imageURL'] ?>" alt="Imagen del alojamiento">
                 <div class="card-content">
                     <h2><?php echo $accommodation['name']; ?></h2>
                     <p><?php echo $accommodation['description']; ?></p>
@@ -30,7 +31,9 @@
                 </div>
             </div>
         <?php endforeach; ?>
+
     </div>
+
 </body>
 
 </html>

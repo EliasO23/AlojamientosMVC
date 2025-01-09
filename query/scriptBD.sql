@@ -24,6 +24,7 @@ CREATE TABLE accommodations (
     name VARCHAR(100) NOT NULL,
     description TEXT NOT NULL,
     location VARCHAR(255) NOT NULL,
+    imageURL TEXT NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
     created_by INT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

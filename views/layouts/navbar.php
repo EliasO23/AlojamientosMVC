@@ -15,6 +15,7 @@
                     <li><a href="./index.php?">Inicio</a></li>
                 <?php else: ?>
                     <li><a href="./index.php?action=adminDashboard">Inicio</a></li>
+                    <li><a href="./index.php?action=listUsers">Usuarios</a></li>
                 <?php endif; ?>
             <?php endif; ?>
 

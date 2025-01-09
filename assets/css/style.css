@@ -127,7 +127,7 @@ header {
 header h1 {
   margin: 0;
   font-size: 2.5em;
-  color: #f7f9fa;
+  color: #0e5077;
 
 }
 
@@ -145,6 +145,7 @@ header p {
   margin: 0 auto;
   max-height: 450px;
   object-fit: cover;
+  border-bottom: solid 20px #0595e9;
 }
 
 /* Card container styles */
@@ -176,11 +177,11 @@ header p {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-bottom: 1px solid #ddd;
 }
 
 .card-content {
   padding: 15px;
+  border-top: solid 10px #4fc773;
 }
 
 .card-content h2 {
@@ -259,6 +260,15 @@ header p {
   border-top-right-radius: 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
+}
+
+.form-container .error-message{
+  color: white;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  background-color: #ff4d4d;
+  padding: 0.8rem;
+  border-radius: 5px;
 }
 
 .form-container p {
@@ -387,5 +397,86 @@ tbody tr td {
 
   th, td {
     padding: 8px;
+  }
+}
+
+
+.alert {
+  padding: 10px;
+  margin: 10px 0;
+  color: #fff;
+  background-color: #f44336; /* Rojo */
+  border-radius: 5px;
+  text-align: center;
+}
+
+
+/* Footer */
+footer {
+  background-color: #074670;
+  color: #fbfcfd;
+  padding: 20px 0;
+  text-align: center;
+  margin-top: 2rem;
+  border-top: solid 10px #0595e9;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-section h5 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #579ceb; 
+}
+
+.footer-section p,
+.footer-section ul,
+.footer-section ul li {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-section ul li a {
+  color: #8697aa;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: #1abc9c;
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  font-size: 1rem;
+}
+
+.footer-bottom p {
+  margin-bottom: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-content {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .footer-section {
+      margin-bottom: 20px;
   }
 }

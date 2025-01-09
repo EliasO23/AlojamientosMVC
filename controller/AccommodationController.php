@@ -19,7 +19,7 @@ class AccommodationController
     {
         // Obtener todos los roles usando el modelo
         $accommodations = $this->accommodation->getAllAccommodations(); 
-        require_once './views/accommodations.php';
+        include './views/accommodations.php';
     }
 
     public function adminRead()
@@ -44,6 +44,7 @@ class AccommodationController
             $this->accommodation->name = $_POST['name'];
             $this->accommodation->description = $_POST['description'];
             $this->accommodation->location = $_POST['location'];
+            $this->accommodation->imageURL = $_POST['imageURL'];
             $this->accommodation->price = $_POST['price'];
             $this->accommodation->created_by = $_SESSION['user_id'];
 

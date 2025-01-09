@@ -31,7 +31,7 @@ class AccommodationsUser
     public function getAccommodationsUser($userid)
     {
         try {
-            $query = "SELECT ac.id_accommodation, ac.name, ac.description, ac.location, ac.price FROM users AS us INNER JOIN user_accommodations AS ua ON us.id_user = ua.user_id INNER JOIN accommodations AS ac ON ua.accommodation_id = ac.id_accommodation where us.id_user = ?";
+            $query = "SELECT ac.id_accommodation, ac.name, ac.description, ac.location, ac.imageURL, ac.price FROM users AS us INNER JOIN user_accommodations AS ua ON us.id_user = ua.user_id INNER JOIN accommodations AS ac ON ua.accommodation_id = ac.id_accommodation where us.id_user = ?";
             $stmt = $this->conn->prepare($query);
 
             $stmt->execute([$userid]);
@@ -68,6 +68,21 @@ class AccommodationsUser
 
         } catch (Exception $e) {
             echo "Error al eliminar el alojamiento del usuario: " . $e->getMessage();
+        }
+    }
+
+    public function getAccommodation($id, $accommodationid){
+        try {
+            $query = "SELECT COUNT(*) as count FROM {$this->table_name} where user_id = $id AND accommodation_id = $accommodationid";
+            $stmt = $this->conn->prepare($query);
+
+            $stmt->execute();
+
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            return $result['count'] > 0;
+        } catch (Exception $e) {
+            echo "Error al obtener los alojamientos: " . $e->getMessage();
         }
     }
 

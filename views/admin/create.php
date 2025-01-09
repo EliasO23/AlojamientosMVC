@@ -34,6 +34,10 @@ if (session_status() == PHP_SESSION_NONE) {
                         <input type="text" name="location" placeholder="Ingresa la ubicacion del alojamiento" required>
                     </div>
                     <div class="form-group">
+                        <label for="imageURL">URL de Imagen:</label>
+                        <input type="text" name="imageURL" placeholder="Ingresa la URL de la imagen" required>
+                    </div>
+                    <div class="form-group">
                         <label for="price">Precio por noche:</label>
                         <input type="number" name="price" placeholder="Ingresa el precio por noche" required>
                     </div>

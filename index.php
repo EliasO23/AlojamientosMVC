@@ -12,6 +12,10 @@
     
 
     switch($action){
+        case 'listUsers':
+            $controllerU->readUser();
+            break;
+
         case 'read':
             $controllerA->read();
             break;

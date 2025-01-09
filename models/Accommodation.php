@@ -7,6 +7,7 @@ class Accommodation
     public $description;
     public $location;
     public $price;
+    public $imageURL;
     public $created_by;
     private $conn;
     public $table_name = "accommodations";
@@ -34,10 +35,10 @@ class Accommodation
 
     public function create(){
         try {
-            $query = "INSERT INTO {$this->table_name} (name, description, location, price, created_by) VALUES (?, ?, ?, ?, ?)";
+            $query = "INSERT INTO {$this->table_name} (name, description, location, imageURL, price, created_by) VALUES (?, ?, ?, ?, ?, ?)";
             $stmt = $this->conn->prepare($query);
 
-            $stmt->execute([$this->name, $this->description, $this->location, $this->price, $this->created_by]);
+            $stmt->execute([$this->name, $this->description, $this->location, $this->imageURL, $this->price, $this->created_by]);
             
             return $stmt;
         } catch (Exception $e) {

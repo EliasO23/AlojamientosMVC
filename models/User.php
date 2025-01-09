@@ -17,7 +17,7 @@ class User
     public function getAllUsers()
     {
         try {
-            $query = "SELECT * FROM {$this->table_name}";
+            $query = "SELECT us.id_user, us.username, us.email, ro.name, us.created_at FROM users AS us INNER JOIN roles AS ro ON us.rol_id = ro.id_rol ORDER BY us.id_user";   
             $stmt = $this->conn->prepare($query);
             $stmt->execute();
 
@@ -42,17 +42,17 @@ class User
         }
     }
 
-    public function sessionUser()
+    public function getUser()
     {
         try {
-            $query = "SELECT * FROM {$this->table_name} WHERE email = ? AND password = ?";
+            $query = "SELECT * FROM {$this->table_name} WHERE email = ?";
             $stmt = $this->conn->prepare($query);
-            $stmt->execute([$this->email, $this->password]);
+            $stmt->execute([$this->email]);
 
-            return $stmt->fetch();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
             
         } catch (Exception $e) {
-            echo "Error al iniciar sesión: " . $e->getMessage();
+            echo "Error al ibtener el usuario: " . $e->getMessage();
         }
     }
 }

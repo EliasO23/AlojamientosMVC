@@ -17,6 +17,9 @@
             </div>
             <div class="form-container">
                 <h2>Iniciar Sesión</h2>
+                <?php if (!empty($errorMessage)): ?>
+                    <p class="error-message"><?= htmlspecialchars($errorMessage) ?></p>
+                <?php endif; ?>
                 <form action="./index.php?action=sessionUser" method="POST">
                     <div class="form-group">
                         <label for="email">Correo Electrónico:</label>

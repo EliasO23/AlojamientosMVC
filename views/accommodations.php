@@ -2,6 +2,8 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
+
+$accommodationIds = $accommodationIds ?? [];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,9 +23,11 @@ if (session_status() == PHP_SESSION_NONE) {
     <a href="./index.php?action=newUser" class="btn btn-success">Register</a> -->
 
     <main>
+
         <header>
             <h1>Alojamientos</h1>
             <p>Encuentra tu alojamiento ideal entre nuestras mejores opciones disponibles.</p>
+
         </header>
 
         <div class="banner">
@@ -33,22 +37,26 @@ if (session_status() == PHP_SESSION_NONE) {
         <div class="card-container">
             <?php foreach ($accommodations as $accommodation): ?>
                 <div class="card">
-                    <img src="https://digital.ihg.com/is/image/ihg/holiday-inn-san-salvador-7105916249-4x3" alt="Imagen del alojamiento">
+                    <img src="<?php echo $accommodation['imageURL'] ?>" alt="Imagen del alojamiento">
                     <div class="card-content">
                         <h2><?php echo $accommodation['name']; ?></h2>
                         <p><?php echo $accommodation['description']; ?></p>
                         <p><strong>Ubicación:</strong> <?php echo $accommodation['location']; ?></p>
                         <p><strong> $<?php echo number_format($accommodation['price'], 2); ?> USD </strong> noche</p>
                         <?php if (isset($_SESSION['user_id'])): ?>
+
                             <button class="btn-select">
                                 <a href="./index.php?action=addAccommodationUser&id=<?php echo $accommodation['id_accommodation']; ?>">Seleccionar</a>
                             </button>
+
                         <?php endif; ?>
                     </div>
                 </div>
             <?php endforeach; ?>
         </div>
     </main>
+
+    <?php include './views/layouts/footer.php' ?>
 
 </body>
 
